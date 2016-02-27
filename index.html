@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $("button").click(function() {
+
+
+                WebFontConfig = {
+                    google: {
+                        families: [$("input").val().split(' ').join('+') + '::latin']
+                    }
+                };
+                (function() {
+                    var wf = document.createElement('script');
+                    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                    wf.type = 'text/javascript';
+                    wf.async = 'true';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(wf, s);
+                })();
+                
+                $('body').append( " <style type='text/css'>"+
+                                  "   .cssClass {"+
+                                  "      font-family: " + $('#fontfam').val() + "!important;"+
+                                  "      color: " + $('#fontcolor').val() + "!important;"+
+                                  "   }"+
+                                  " </style>"
+                                );
+
+            });
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <p class="cssClass">Cool Looking Text</p>
+
+    <p>
+        Font Family:
+        <input id="fontfam" value="Special Elite">
+        <br><br> Font Color:
+        <input id="fontcolor" value="Yellow">
+    </p>
+    <button>Change Subs!</button>
+
+</body>
+
+</html>
